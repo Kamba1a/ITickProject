@@ -11,8 +11,16 @@ public class Toolbox : Singleton<Toolbox>
 
     //public static void Add(object obj)
     //{
+    //    Type objType = obj.GetType();
+    //    if(objType.IsSubclassOf(typeof(MonoBehaviour)))
+    //    {
+    //        Instance.tools.Add(objType, new GameObject(objType.ToString()).AddComponent(objType));
+    //    }
+    //    else
+    //    {
+    //        Instance.tools.Add(objType, (T)new object());
+    //    }
     //    Instance.tools.Add(obj.GetType(), obj);
-    //    Debug.Log(obj.GetType());
     //}
 
     //public static T Get<T>()
@@ -23,11 +31,12 @@ public class Toolbox : Singleton<Toolbox>
 
     public static T GetOrCreate<T>()
     {
-        if (!Instance.tools.ContainsKey(typeof(T)))
+        Type tool = typeof(T);
+        if (!Instance.tools.ContainsKey(tool))
         {
-            Instance.tools.Add(typeof(T), new GameObject("UpdateManager").AddComponent<UpdateManager>());
+            Instance.tools.Add(tool, new GameObject(tool.ToString()).AddComponent(tool));
         }
-        return (T)Instance.tools[typeof(T)];
+        return (T)Instance.tools[tool];
     }
 
     public static void ClearTools()
