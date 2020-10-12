@@ -14,18 +14,8 @@ public class UpdateManagerComponent: MonoBehaviour
         this.updateManager = updateManager;
     }
 
-    private void Update()
-    {
-        updateManager.Tick();
-    }
-
-    private void FixedUpdate()
-    {
-        updateManager.TickFixed();
-    }
-    private void LateUpdate()
-    {
-        updateManager.TickLate();
-    }
+    private void Update() => updateManager.Tick();
+    private void FixedUpdate() => updateManager.TickFixed();
+    private void LateUpdate() => updateManager.TickLate();
 }
 

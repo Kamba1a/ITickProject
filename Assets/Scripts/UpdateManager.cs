@@ -6,18 +6,18 @@ using UnityEngine;
 
 public class UpdateManager : MonoBehaviour, ITick, ITickFixed, ITickLate
 {
-    List<ITick> ticks = new List<ITick>();
-    List<ITickLate> ticksLate = new List<ITickLate>();
-    List<ITickFixed> ticksFixed = new List<ITickFixed>();
+    private List<ITick> ticks = new List<ITick>();
+    private List<ITickLate> ticksLate = new List<ITickLate>();
+    private List<ITickFixed> ticksFixed = new List<ITickFixed>();
 
-    void Awake()
+    private void Awake()
     {
         FindObjectOfType<Starter>().gameObject.AddComponent<UpdateManagerComponent>().SetUpdateManager(this);
     }
 
-    static public void Add(ITick tick) => Toolbox.GetOrCreate<UpdateManager>().ticks.Add(tick);
-    static public void Add(ITickLate tickLate) => Toolbox.GetOrCreate<UpdateManager>().ticksLate.Add(tickLate);
-    static public void Add(ITickFixed tickFixed) => Toolbox.GetOrCreate<UpdateManager>().ticksFixed.Add(tickFixed);
+    public static void Add(ITick tick) => Toolbox.GetOrCreate<UpdateManager>().ticks.Add(tick);
+    public static void Add(ITickLate tickLate) => Toolbox.GetOrCreate<UpdateManager>().ticksLate.Add(tickLate);
+    public static void Add(ITickFixed tickFixed) => Toolbox.GetOrCreate<UpdateManager>().ticksFixed.Add(tickFixed);
 
     public void Tick()
     {

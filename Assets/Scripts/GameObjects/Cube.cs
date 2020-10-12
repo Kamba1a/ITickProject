@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour, ITick
 {
-    void Awake()
+    private void Awake()
     {
         UpdateManager.Add(this);
     }

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PressKeysTracker : Singleton<PressKeysTracker>, ITick
 {
-    void Awake()
+    private void Awake()
     {
         UpdateManager.Add(this);
         SceneManager.sceneLoaded += OnSceneLoaded;
