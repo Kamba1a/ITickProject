@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Sphere : MonoBehaviour, ITick
 {
-    void Awake()
+    private void Awake()
     {
         //Toolbox.GetOrCreate<UpdateManager>().Add(this);
         UpdateManager.Add(this);

@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Toolbox : Singleton<Toolbox>
 {
-    Dictionary<Type, object> tools = new Dictionary<Type, object>();
+    private Dictionary<Type, object> tools = new Dictionary<Type, object>();
 
     //public static void Add(object obj)
     //{

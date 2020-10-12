@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Singleton <T> : MonoBehaviour where T: MonoBehaviour
 {
-    static T instance;
-    static object locker = new object();
+    private static T instance;
+    private static object locker = new object();
 
     public static T Instance
     {
